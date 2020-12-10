@@ -1,0 +1,14 @@
+version: '3'
+networks:
+  web:
+    external: true
+services:
+  whoami:
+    image: traefik/whoami
+    labels:
+      - traefik.http.routers.whoami2.rule=Host(`whoami2.yourdomain.com`)
+      - traefik.http.routers.whoami2.tls=true
+      - traefik.http.routers.whoami2.tls.certresolver=lets-encrypt
+      - traefik.port=80
+    networks:
+      - web
