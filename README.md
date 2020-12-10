@@ -26,6 +26,7 @@ A record : @ IP address
 ```
  
 ### Start the container
+docker network create web
 docker run -d \
   -v /var/run/docker.sock:/var/run/docker.sock \
   -v $PWD/traefik.toml:/traefik.toml \
